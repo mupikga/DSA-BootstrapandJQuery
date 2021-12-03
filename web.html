@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.AppleSystemUIFontMonospaced'; color: #0b268c; -webkit-text-stroke: #0b268c; background-color: #ffffff}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.AppleSystemUIFontMonospaced'; color: #0b268c; -webkit-text-stroke: #0b268c; background-color: #ffffff; min-height: 15.0px}
+    span.s1 {font-kerning: none}
+    span.Apple-tab-span {white-space:pre}
+    table.t1 {border-collapse: collapse}
+    td.td1 {width: 764.0px; padding: 0.0px 10.0px 0.0px 10.0px}
+  </style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td colspan="2" valign="top" class="td1">
+        <p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;head&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;title&gt;Entrega WEB&lt;/title&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="utf-8"&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-tab-span">	</span>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"&gt;&lt;/script&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-tab-span">	</span>&lt;script&gt;</span></p>
+        <p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+        <p class="p1"><span class="s1">$(document).ready(function(){</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>$(".table").hide();</span></p>
+        <p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>$("button").click(function(){</span></p>
+        <p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>$('#taula').empty();</span></p>
+        <p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>$.ajax({</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>type: 'GET',</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>url: 'https://api.github.com/users/'+$("#usuari").val()+'/repos',</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>data: { get_param: 'value' },</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>dataType: 'json',</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>success: function (json) {</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>$.each(json, function(index, element){</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>$('#taula').append(</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>'&lt;tr&gt;&lt;td&gt;'+element.name+</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>'&lt;/td&gt;&lt;td&gt;'+element.description+</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>'&lt;/td&gt;&lt;td&gt;'+element.stargazers_count+'&lt;/td&gt;&lt;/tr&gt;');</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>});</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>$("#text1").text("Repositories " +$("#usuari").val());</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>$(".table").show();</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+        <p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+        <p class="p2"><span class="s1"></span><br></p>
+        <p class="p2"><span class="s1"></span><br></p>
+        <p class="p1"><span class="s1">&lt;body&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;div class="col-sm-8"&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;h1&gt;Entrega WEB&lt;/h1&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;div class="container-fluid"&gt;</span></p>
+        <p class="p2"><span class="s1"></span><br></p>
+        <p class="p2"><span class="s1"></span><br></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Buscador d'usuaris de Github&lt;/p&gt;</span></p>
+        <p class="p2"><span class="s1"><span class="Apple-converted-space">    </span></span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;label&gt;Usuari:&lt;/label&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input id="usuari"&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">        <span class="Apple-tab-span">	</span></span>&lt;button&gt;Buscar&lt;/button&gt; <span class="Apple-converted-space">   </span></span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;table class="table table-striped"&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;thead&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;th&gt;Repository&lt;/th&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;th&gt;Description&lt;/th&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;th&gt;Followers&lt;/th&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/thead&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;tbody id=taula&gt;</span></p>
+        <p class="p2"><span class="s1"><span class="Apple-converted-space">     </span></span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/tbody&gt;</span></p>
+        <p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/table&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+        <p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+        <p class="p2"><span class="s1"></span><br></p>
+        <p class="p2"><span class="s1"></span><br></p>
+        <p class="p2"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
