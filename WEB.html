@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXEMPLE HTML</title>
+    <!--Titol incial a la pestanya -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="col-sm-8">
+  <h1>Entrega WEB</h1>
+  <div class="container-fluid">
+
+
+      <p>Buscador d'usuaris de Github</p>
+
+      <label>Usuari:</label>
+      <input id="usuari">
+      </div>
+          	<button>Buscar</button>
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Repository</th>
+          <th>Description</th>
+          <th>Followers</th>
+        </tr>
+      </thead>
+      <tbody id=taula>
+
+      </tbody>
+    </table>
+  </div>
+</body>
+
+<script>
+
+$(document).ready(function(){
+      $(".table").hide();
+
+      $("button").click(function(){
+
+          $('#taula').empty();
+
+          $.ajax({
+              type: 'GET',
+              url: 'https://api.github.com/users/'+$("#usuari").val()+'/repos',
+              data: { get_param: 'value' },
+              dataType: 'json',
+              success: function (json) {
+                  $.each(json, function(index, element){
+                      $('#taula').append(
+                      '<tr><td>'+element.name+
+                      '</td><td>'+element.description+
+                      '</td><td>'+element.stargazers_count+'</td></tr>');
+                      });
+                  $("#text1").text("Repositories " +$("#usuari").val());
+                  $(".table").show();
+              }
+          });
+      });
+  });
+</script>
+
+</html>
